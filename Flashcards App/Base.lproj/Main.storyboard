@@ -16,20 +16,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UR-pj-eG8">
+                                <rect key="frame" x="20" y="474" width="374" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="21" titleAlignment="center"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8Z6-9m-JIe" appends="YES" id="8H5-oD-KkG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgA-u1-uqp">
+                                <rect key="frame" x="20" y="552" width="374" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="22" titleAlignment="center"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="g1J-R5-mTL" appends="YES" id="BVs-vb-znF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNh-xr-E4d">
+                                <rect key="frame" x="20" y="630" width="374" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="23" titleAlignment="center"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="b0w-kE-hti" appends="YES" id="HJp-Lj-nWC"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJd-iQ-0JC">
-                                <rect key="frame" x="36" y="354" width="342" height="187"/>
+                                <rect key="frame" x="20" y="196" width="374" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL3-q4-4Gx">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="187"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL3-q4-4Gx">
+                                        <rect key="frame" x="2" y="0.0" width="370" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90965440539999998" green="0.42803535279999999" blue="0.75432265220000005" alpha="0.91111341059999995" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the default port for SSH?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-lr-K0M">
-                                        <rect key="frame" x="-14" y="0.0" width="370" height="187"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the default port for SSH?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-lr-K0M">
+                                        <rect key="frame" x="2" y="0.0" width="370" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -49,13 +79,32 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="IL3-q4-4Gx" id="UFa-hL-QV0"/>
+                        <outlet property="buttonOne" destination="0UR-pj-eG8" id="JNL-qn-YdW"/>
+                        <outlet property="buttonThree" destination="WNh-xr-E4d" id="w0H-z2-eBo"/>
+                        <outlet property="buttonTwo" destination="EgA-u1-uqp" id="RBI-Nw-weF"/>
+                        <outlet property="cardContainer" destination="AJd-iQ-0JC" id="rRH-JN-13i"/>
                         <outlet property="questionLabel" destination="tPy-lr-K0M" id="2tX-Fl-Ojd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="KSn-9E-xEk">
+                <tapGestureRecognizer id="KSn-9E-xEk" userLabel="Tap Gesture Recognizer1">
                     <connections>
                         <action selector="tapOnFlashcard:" destination="BYZ-38-t0r" id="zGN-72-0GT"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8Z6-9m-JIe" userLabel="Tap Gesture Button One">
+                    <connections>
+                        <action selector="tapOnButtonOne:" destination="BYZ-38-t0r" id="EsW-GL-Uce"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="g1J-R5-mTL" userLabel="Tap Gesture Button Two">
+                    <connections>
+                        <action selector="tapOnButtonTwo:" destination="BYZ-38-t0r" id="ssB-3e-hhR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="b0w-kE-hti" userLabel="Tap Gesture Button Three">
+                    <connections>
+                        <action selector="tapOnButtonThree:" destination="BYZ-38-t0r" id="Jqv-09-K60"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
