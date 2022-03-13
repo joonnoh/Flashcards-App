@@ -73,6 +73,17 @@
                                     <outletCollection property="gestureRecognizers" destination="KSn-9E-xEk" appends="YES" id="eNT-Yl-ZgK"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOc-5U-c0t">
+                                <rect key="frame" x="182" y="758" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="50"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Exv-h1-We8" kind="presentation" id="3Ti-Nh-kc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,6 +120,69 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="65.625"/>
+        </scene>
+        <!--Creation View Controller-->
+        <scene sceneID="PEF-MT-eWX">
+            <objects>
+                <viewController id="hD7-Qq-REX" customClass="CreationViewController" customModule="Flashcards_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7A9-tr-0oW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-23-oOh">
+                                <rect key="frame" x="71" y="245" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsF-DM-H1x">
+                                <rect key="frame" x="71" y="383" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lBv-I8-GXG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rbU-fC-xZz">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="he1-hO-EvI">
+                            <connections>
+                                <action selector="didTapOnCancel:" destination="hD7-Qq-REX" id="Qvj-U0-CSW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ubx-p5-diK">
+                            <connections>
+                                <action selector="didTapOnDone:" destination="hD7-Qq-REX" id="Onq-o9-MyC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="answerField" destination="xsF-DM-H1x" id="O4c-18-vHm"/>
+                        <outlet property="questionField" destination="Ksd-23-oOh" id="Rfd-Kd-0Lc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xd-Pc-zcD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1675.3623188405797" y="65.625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ed3-C8-fOS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Exv-h1-We8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2P7-CQ-uRW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hD7-Qq-REX" kind="relationship" relationship="rootViewController" id="Gwk-XA-3ed"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jc6-43-hfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765.21739130434787" y="65.625"/>
         </scene>
     </scenes>
     <resources>

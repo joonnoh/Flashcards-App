@@ -19,6 +19,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var buttonThree: UIButton!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Destination of the segue is the Navigation Controller
+        let navigationController = segue.destination as! UINavigationController
+        
+        // Navigation Controller only contains Creation View Controller
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        // Set flashcardsController property to self
+        creationController.flashcardsController = self
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +89,10 @@ class ViewController: UIViewController {
         
     }
     
+    func updateFlashcard(question: String, answer: String) {
+        questionLabel.text = question
+        answerLabel.text = answer
+    }
     
 }
 

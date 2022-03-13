@@ -16,6 +16,7 @@
 		A672BF0327CAB2FA0095FAA7 /* Flashcards_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A672BF0227CAB2FA0095FAA7 /* Flashcards_AppTests.swift */; };
 		A672BF0D27CAB2FA0095FAA7 /* Flashcards_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A672BF0C27CAB2FA0095FAA7 /* Flashcards_AppUITests.swift */; };
 		A672BF0F27CAB2FA0095FAA7 /* Flashcards_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A672BF0E27CAB2FA0095FAA7 /* Flashcards_AppUITestsLaunchTests.swift */; };
+		A6CC7C8927DD2F2000B1C805 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CC7C8827DD2F2000B1C805 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A672BF0827CAB2FA0095FAA7 /* Flashcards AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flashcards AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A672BF0C27CAB2FA0095FAA7 /* Flashcards_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_AppUITests.swift; sourceTree = "<group>"; };
 		A672BF0E27CAB2FA0095FAA7 /* Flashcards_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6CC7C8827DD2F2000B1C805 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				A672BEED27CAB2F70095FAA7 /* SceneDelegate.swift */,
 				A672BEEF27CAB2F70095FAA7 /* ViewController.swift */,
 				A672BEF127CAB2F70095FAA7 /* Main.storyboard */,
+				A6CC7C8827DD2F2000B1C805 /* CreationViewController.swift */,
 				A672BEF427CAB2F90095FAA7 /* Assets.xcassets */,
 				A672BEF627CAB2F90095FAA7 /* LaunchScreen.storyboard */,
 				A672BEF927CAB2F90095FAA7 /* Info.plist */,
@@ -261,6 +264,7 @@
 				A672BEF027CAB2F70095FAA7 /* ViewController.swift in Sources */,
 				A672BEEC27CAB2F70095FAA7 /* AppDelegate.swift in Sources */,
 				A672BEEE27CAB2F70095FAA7 /* SceneDelegate.swift in Sources */,
+				A6CC7C8927DD2F2000B1C805 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
