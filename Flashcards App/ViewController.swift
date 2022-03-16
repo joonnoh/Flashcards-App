@@ -30,6 +30,14 @@ class ViewController: UIViewController {
         // Set flashcardsController property to self
         creationController.flashcardsController = self
         
+        // Set initial question and answer if edit segue
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = questionLabel.text
+            creationController.initialAnswer = answerLabel.text
+            creationController.initialwrongAnswer1 = buttonOne.currentTitle
+            creationController.initialwrongAnswer2 = buttonThree.currentTitle
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -89,9 +97,29 @@ class ViewController: UIViewController {
         
     }
     
-    func updateFlashcard(question: String, answer: String) {
+    @IBAction func tapOnResetButton(_ sender: Any) {
+        questionLabel.isHidden = false
+        buttonOne.isHidden = false
+        buttonTwo.isHidden = false
+        buttonThree.isHidden = false
+    }
+    
+    func updateFlashcard(question: String, answer: String, wrongAnswer1: String?, wrongAnswer2: String?) {
+        
+        // Update question and answer cards
         questionLabel.text = question
         answerLabel.text = answer
+        
+        // Update multiple choice buttons
+        buttonOne.setTitle(wrongAnswer1, for: .normal)
+        buttonTwo.setTitle(answer, for: .normal)
+        buttonThree.setTitle(wrongAnswer2, for: .normal)
+        
+        // Reset card and buttons
+        questionLabel.isHidden = false
+        buttonOne.isHidden = false
+        buttonTwo.isHidden = false
+        buttonThree.isHidden = false
     }
     
 }
