@@ -5,7 +5,7 @@ Flashcards app for studying things
 
 ## Lab 2
 
-### App Walk-though
+### App Walk-through
 
 <img src="flashcards2.gif" width=200><br>
 
@@ -18,10 +18,12 @@ Flashcards app for studying things
 - [x] User gets an error if they try to create a new flashcard with no question or answer
 - [x] User can edit existing flashcard
 - [x] User can add multiple choice answers in the creation screen
+### Extra
+- [x] User can reset card and multiple choice answers
 
 ## Lab 1
 
-### App Walk-though
+### App Walk-through
 
 <img src="flashcards1.gif" width=200><br>
 
