@@ -66,8 +66,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD9-2p-Llq">
+                                        <rect key="frame" x="-5" y="143" width="52" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="🔄">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qhY-W6-Shm" appends="YES" id="hco-nr-gwx"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="och-um-KxX">
-                                        <rect key="frame" x="314" y="133" width="60" height="46"/>
+                                        <rect key="frame" x="319" y="141" width="60" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="✏️">
@@ -75,6 +87,16 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="Exv-h1-We8" kind="show" identifier="EditSegue" id="DWE-A7-Lqo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqD-wE-XoD">
+                                        <rect key="frame" x="-1" y="0.0" width="44" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="❌"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3RK-GQ-bqc" appends="YES" id="Ubg-ak-z6G"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,7 +107,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOc-5U-c0t">
-                                <rect key="frame" x="282" y="764" width="50" height="50"/>
+                                <rect key="frame" x="182" y="842" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="+">
@@ -95,16 +117,28 @@
                                     <segue destination="Exv-h1-We8" kind="presentation" id="3Ti-Nh-kc2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD9-2p-Llq">
-                                <rect key="frame" x="80" y="770" width="58" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd3-bG-Zg9">
+                                <rect key="frame" x="343" y="854" width="65" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="🔄">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="qhY-W6-Shm" appends="YES" id="hco-nr-gwx"/>
+                                    <outletCollection property="gestureRecognizers" destination="t8S-nX-sLm" appends="YES" id="a1u-S5-kO7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9A-7c-nyC">
+                                <rect key="frame" x="20" y="854" width="64" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Prev">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hFd-eT-hxG" appends="YES" id="fMD-qY-BK2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,7 +147,9 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="IL3-q4-4Gx" id="UFa-hL-QV0"/>
+                        <outlet property="buttonNext" destination="cd3-bG-Zg9" id="NgO-Vi-PDA"/>
                         <outlet property="buttonOne" destination="0UR-pj-eG8" id="JNL-qn-YdW"/>
+                        <outlet property="buttonPrev" destination="A9A-7c-nyC" id="M6m-Es-v3h"/>
                         <outlet property="buttonThree" destination="WNh-xr-E4d" id="w0H-z2-eBo"/>
                         <outlet property="buttonTwo" destination="EgA-u1-uqp" id="RBI-Nw-weF"/>
                         <outlet property="cardContainer" destination="AJd-iQ-0JC" id="rRH-JN-13i"/>
@@ -144,6 +180,21 @@
                 <tapGestureRecognizer id="qhY-W6-Shm" userLabel="Tap Gesture ResetButton">
                     <connections>
                         <action selector="tapOnResetButton:" destination="BYZ-38-t0r" id="hkp-sS-Qtf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hFd-eT-hxG" userLabel="Tap Gesture Prev">
+                    <connections>
+                        <action selector="tapOnPrev:" destination="BYZ-38-t0r" id="IPJ-fi-ODo"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="t8S-nX-sLm" userLabel="Tap Gesture Next">
+                    <connections>
+                        <action selector="tapOnNext:" destination="BYZ-38-t0r" id="3bP-jV-IiP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3RK-GQ-bqc" userLabel="Tap Gesture Delete">
+                    <connections>
+                        <action selector="tapOnDelete:" destination="BYZ-38-t0r" id="UwQ-Be-Xuf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
