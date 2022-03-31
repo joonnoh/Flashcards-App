@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonPrev: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
     
+    // Button to remember correct answer
+    var correctAnswerButton: UIButton!
+    
     // Array to hold flashcards
     var flashcards = [Flashcard]()
     
@@ -102,27 +105,155 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Start with the flashcard invisible and slightly smaller in size
+        cardContainer.alpha = 0.0
+        cardContainer.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        buttonOne.alpha = 0.0
+        buttonOne.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        buttonTwo.alpha = 0.0
+        buttonTwo.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        buttonThree.alpha = 0.0
+        buttonThree.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        //Spring animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.cardContainer.alpha = 1.0
+            self.cardContainer.transform = CGAffineTransform.identity
+            self.buttonOne.alpha = 1.0
+            self.buttonOne.transform = CGAffineTransform.identity
+            self.buttonTwo.alpha = 1.0
+            self.buttonTwo.transform = CGAffineTransform.identity
+            self.buttonThree.alpha = 1.0
+            self.buttonThree.transform = CGAffineTransform.identity
+        })
+    }
 
     @IBAction func tapOnButtonOne(_ sender: Any) {
-        buttonOne.isHidden = true
+        // If correct answer is selected, flip flashcard. Else, disable button
+        if buttonOne == correctAnswerButton {
+            questionLabel.isHidden = true
+            buttonOne.tintColor = UIColor.green
+            buttonTwo.isEnabled = false
+            buttonThree.isEnabled = false
+        }
+        else {
+            buttonOne.isEnabled = false
+        }
     }
     
     @IBAction func tapOnButtonTwo(_ sender: Any) {
-        questionLabel.isHidden = true
+        // If correct answer is selected, flip flashcard. Else, disable button
+        if buttonTwo == correctAnswerButton {
+            questionLabel.isHidden = true
+            buttonTwo.tintColor = UIColor.green
+            buttonOne.isEnabled = false
+            buttonThree.isEnabled = false
+        }
+        else {
+            buttonTwo.isEnabled = false
+        }
     }
     
     @IBAction func tapOnButtonThree(_ sender: Any) {
-        buttonThree.isHidden = true
+        // If correct answer is selected, flip flashcard. Else, disable button
+        if buttonThree == correctAnswerButton {
+            questionLabel.isHidden = true
+            buttonThree.tintColor = UIColor.green
+            buttonOne.isEnabled = false
+            buttonTwo.isEnabled = false
+        }
+        else {
+            buttonThree.isEnabled = false
+        }
     }
     
     @IBAction func tapOnFlashcard(_ sender: Any) {
-        if questionLabel.isHidden == false {
-            questionLabel.isHidden = true
+        flipFlashcard()
+    }
+    
+    func flipFlashcard() {
+        
+        UIView.transition(with: cardContainer, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if self.questionLabel.isHidden == false {
+                self.questionLabel.isHidden = true
+            }
+            else {
+                self.questionLabel.isHidden = false
+            }
+        })
+    }
+    
+    func animateCardOut(direction: String) {
+        if direction == "next" {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.cardContainer.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+                self.buttonOne.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+                self.buttonTwo.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+                self.buttonThree.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+            }, completion: { finished in
+                // Increase current card index
+                self.currentCardIndex = self.currentCardIndex + 1
+                
+                // Update labels and buttons
+                self.updateLabels()
+                self.updateNextPrevButtons()
+                
+                self.animateCardIn(direction: "next")
+            })
+        }
+        // Direction is "prev"
+        else {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.cardContainer.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+                self.buttonOne.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+                self.buttonTwo.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+                self.buttonThree.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+            }, completion: { finished in
+                // Decrease current card index
+                self.currentCardIndex = self.currentCardIndex - 1
+                
+                // Update labels and buttons
+                self.updateLabels()
+                self.updateNextPrevButtons()
+                
+                self.animateCardIn(direction: "prev")
+            })
+        }
+    }
+    
+    func animateCardIn(direction: String) {
+        if direction == "next" {
+            // Start on the right side and don't animate this
+            cardContainer.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+            buttonOne.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+            buttonTwo.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+            buttonThree.transform = CGAffineTransform.identity.translatedBy(x: 500.0, y: 0.0)
+            // Animate card going back to its original position
+            UIView.animate(withDuration: 0.4) {
+                self.cardContainer.transform = CGAffineTransform.identity
+                self.buttonOne.transform = CGAffineTransform.identity
+                self.buttonTwo.transform = CGAffineTransform.identity
+                self.buttonThree.transform = CGAffineTransform.identity
+            }
         }
         else {
-            questionLabel.isHidden = false
+            // Start on the left side and don't animate this
+            cardContainer.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+            buttonOne.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+            buttonTwo.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+            buttonThree.transform = CGAffineTransform.identity.translatedBy(x: -500.0, y: 0.0)
+            // Animate card going back to its original position
+            UIView.animate(withDuration: 0.4) {
+                self.cardContainer.transform = CGAffineTransform.identity
+                self.buttonOne.transform = CGAffineTransform.identity
+                self.buttonTwo.transform = CGAffineTransform.identity
+                self.buttonThree.transform = CGAffineTransform.identity
+            }
         }
-        
     }
     
     @IBAction func tapOnDelete(_ sender: Any) {
@@ -159,45 +290,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapOnResetButton(_ sender: Any) {
-        questionLabel.isHidden = false
-        buttonOne.isHidden = false
-        buttonTwo.isHidden = false
-        buttonThree.isHidden = false
+        updateLabels()
     }
     
     @IBAction func tapOnPrev(_ sender: Any) {
-        // Decrease current card index
-        currentCardIndex = currentCardIndex - 1
         
-        // Update labels
-        updateLabels()
-        
-        // Update buttons
-        updateNextPrevButtons()
-        
-        questionLabel.isHidden = false
-        buttonOne.isHidden = false
-        buttonTwo.isHidden = false
-        buttonThree.isHidden = false
-        
+        animateCardOut(direction: "prev")
         saveToDisk()
     }
     
     @IBAction func tapOnNext(_ sender: Any) {
-        // Increase current card index
-        currentCardIndex = currentCardIndex + 1
         
-        // Update labels
-        updateLabels()
-        
-        // Update buttons
-        updateNextPrevButtons()
-        
-        questionLabel.isHidden = false
-        buttonOne.isHidden = false
-        buttonTwo.isHidden = false
-        buttonThree.isHidden = false
-        
+        animateCardOut(direction: "next")
         saveToDisk()
     }
     
@@ -250,12 +354,35 @@ class ViewController: UIViewController {
     func updateLabels() {
         // Get current flashcard
         let currentFlashcard = flashcards[currentCardIndex]
+        
         // Update labels
         questionLabel.text = currentFlashcard.question
         answerLabel.text = currentFlashcard.answer
-        buttonOne.setTitle(currentFlashcard.wrongAnswer1, for: .normal)
-        buttonTwo.setTitle(currentFlashcard.answer, for: .normal)
-        buttonThree.setTitle(currentFlashcard.wrongAnswer2, for: .normal)
+        
+        // Update buttons
+        let buttons = [buttonOne, buttonTwo, buttonThree].shuffled()
+        let answers = [currentFlashcard.answer, currentFlashcard.wrongAnswer1, currentFlashcard.wrongAnswer2].shuffled()
+        
+        // Iterate over both arrays at same time
+        for (button, answer) in zip(buttons, answers) {
+            
+            // Set title of random button with random answer
+            button?.setTitle(answer, for: .normal)
+            
+            // If this is the correct answer, save the button
+            if answer == currentFlashcard.answer {
+                correctAnswerButton = button
+            }
+        }
+        
+        questionLabel.isHidden = false
+        buttonOne.tintColor = #colorLiteral(red: 0, green: 0.4591832161, blue: 0.8913863301, alpha: 1)
+        buttonTwo.tintColor = #colorLiteral(red: 0, green: 0.4591832161, blue: 0.8913863301, alpha: 1)
+        buttonThree.tintColor = #colorLiteral(red: 0, green: 0.4591832161, blue: 0.8913863301, alpha: 1)
+        buttonOne.isEnabled = true
+        buttonTwo.isEnabled = true
+        buttonThree.isEnabled = true
+        
     }
     
     
@@ -268,17 +395,6 @@ class ViewController: UIViewController {
             print("* Edited flashcard at index \(currentCardIndex)")
             updateNextPrevButtons()
             updateLabels()
-            
-            // Update multiple choice buttons
-            buttonOne.setTitle(wrongAnswer1, for: .normal)
-            buttonTwo.setTitle(answer, for: .normal)
-            buttonThree.setTitle(wrongAnswer2, for: .normal)
-            
-            // Reset card and buttons
-            questionLabel.isHidden = false
-            buttonOne.isHidden = false
-            buttonTwo.isHidden = false
-            buttonThree.isHidden = false
             
             saveToDisk()
         }
@@ -297,17 +413,6 @@ class ViewController: UIViewController {
             
             // Update question and answer cards
             updateLabels()
-            
-            // Update multiple choice buttons
-            buttonOne.setTitle(wrongAnswer1, for: .normal)
-            buttonTwo.setTitle(answer, for: .normal)
-            buttonThree.setTitle(wrongAnswer2, for: .normal)
-            
-            // Reset card and buttons
-            questionLabel.isHidden = false
-            buttonOne.isHidden = false
-            buttonTwo.isHidden = false
-            buttonThree.isHidden = false
             
             // Save flashcards
             saveToDisk()
